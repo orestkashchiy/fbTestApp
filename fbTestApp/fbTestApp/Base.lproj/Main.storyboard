@@ -1,24 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="fbTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="city" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDO-dF-3Sd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="815"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rij-Lb-uF7">
+                                <rect key="frame" x="81" y="776" width="252" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="7zj-V5-hEn"/>
+                                    <constraint firstAttribute="height" constant="57" id="p3E-iT-3rq"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="fbbtn"/>
+                                <connections>
+                                    <action selector="loginBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBT-gS-Vk0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rij-Lb-uF7" secondAttribute="trailing" constant="81" id="Bor-xK-TID"/>
+                            <constraint firstItem="cDO-dF-3Sd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HFy-QS-yH1"/>
+                            <constraint firstItem="cDO-dF-3Sd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lih-vT-pxY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rij-Lb-uF7" secondAttribute="bottom" constant="29" id="Xfg-5t-Ukn"/>
+                            <constraint firstItem="cDO-dF-3Sd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dvA-hh-wjx"/>
+                            <constraint firstItem="rij-Lb-uF7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="lEy-2f-QJt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="TyI-nS-2jd">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M1G-8g-K0g" customClass="MapViewController" customModule="fbTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MIW-HX-AuF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uee-l2-sww">
+                                <rect key="frame" x="344" y="832" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutBtn:" destination="ZOM-76-ooo" eventType="touchUpInside" id="hsY-xb-T1q"/>
+                                    <action selector="logoutBtnClicked:" destination="M1G-8g-K0g" eventType="touchUpInside" id="wp9-qS-6hC"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-4o-MlC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Khi-JF-TGF" firstAttribute="trailing" secondItem="O9c-4o-MlC" secondAttribute="trailing" id="09o-bS-hEa"/>
+                            <constraint firstItem="Uee-l2-sww" firstAttribute="bottom" secondItem="Khi-JF-TGF" secondAttribute="bottom" id="68N-8J-FZH"/>
+                            <constraint firstItem="Khi-JF-TGF" firstAttribute="trailing" secondItem="Uee-l2-sww" secondAttribute="trailing" constant="15" id="71K-pa-96X"/>
+                            <constraint firstItem="O9c-4o-MlC" firstAttribute="top" secondItem="Khi-JF-TGF" secondAttribute="top" id="F59-g2-8PX"/>
+                            <constraint firstItem="Khi-JF-TGF" firstAttribute="bottom" secondItem="O9c-4o-MlC" secondAttribute="bottom" id="sli-xb-INO"/>
+                            <constraint firstItem="O9c-4o-MlC" firstAttribute="leading" secondItem="Khi-JF-TGF" secondAttribute="leading" id="yMK-uf-BCo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Khi-JF-TGF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7bP-x6-f1U"/>
+                    <connections>
+                        <outlet property="mapView" destination="O9c-4o-MlC" id="L1c-wO-vXl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJ6-93-VTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ZOM-76-ooo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="city" width="400" height="600"/>
+        <image name="fbbtn" width="326.5" height="77"/>
+    </resources>
 </document>

@@ -7,7 +7,25 @@
 		<key>fbTestApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>843A6AD224091E9400C3639C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>843A6AE824091E9400C3639C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>843A6AF324091E9400C3639C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

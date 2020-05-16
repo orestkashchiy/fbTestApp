@@ -17,6 +17,7 @@
 		843A6AE324091E9400C3639C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843A6AE124091E9400C3639C /* LaunchScreen.storyboard */; };
 		843A6AEE24091E9400C3639C /* fbTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A6AED24091E9400C3639C /* fbTestAppTests.swift */; };
 		843A6AF924091E9400C3639C /* fbTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A6AF824091E9400C3639C /* fbTestAppUITests.swift */; };
+		844A0AE9245AE7860074BB4C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A0AE8245AE7860074BB4C /* UserModel.swift */; };
 		849969A7240D2745006F72F5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849969A6240D2745006F72F5 /* MapViewController.swift */; };
 		849969CC242D238E006F72F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849969CB242D238E006F72F5 /* CoreLocation.framework */; };
 		849969CE242D239B006F72F5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849969CD242D239B006F72F5 /* MapKit.framework */; };
@@ -59,6 +60,7 @@
 		843A6AF424091E9400C3639C /* fbTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fbTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		843A6AF824091E9400C3639C /* fbTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fbTestAppUITests.swift; sourceTree = "<group>"; };
 		843A6AFA24091E9400C3639C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844A0AE8245AE7860074BB4C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		849969A5240988D6006F72F5 /* fbTestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fbTestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		849969A6240D2745006F72F5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		849969CB242D238E006F72F5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -137,10 +139,12 @@
 		843A6AD524091E9400C3639C /* fbTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				844A0AE5245AE3830074BB4C /* Model */,
 				843A6AD624091E9400C3639C /* AppDelegate.swift */,
 				843A6AD824091E9400C3639C /* SceneDelegate.swift */,
 				843A6ADA24091E9400C3639C /* LoginViewController.swift */,
 				849969A6240D2745006F72F5 /* MapViewController.swift */,
+				844A0AE8245AE7860074BB4C /* UserModel.swift */,
 				843A6ADC24091E9400C3639C /* Main.storyboard */,
 				843A6ADF24091E9400C3639C /* Assets.xcassets */,
 				843A6AE124091E9400C3639C /* LaunchScreen.storyboard */,
@@ -166,6 +170,13 @@
 				843A6AFA24091E9400C3639C /* Info.plist */,
 			);
 			path = fbTestAppUITests;
+			sourceTree = "<group>";
+		};
+		844A0AE5245AE3830074BB4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9B0F8FCCA740E7EED7EF1574 /* Pods */ = {
@@ -424,6 +435,7 @@
 				843A6ADB24091E9400C3639C /* LoginViewController.swift in Sources */,
 				843A6AD724091E9400C3639C /* AppDelegate.swift in Sources */,
 				843A6AD924091E9400C3639C /* SceneDelegate.swift in Sources */,
+				844A0AE9245AE7860074BB4C /* UserModel.swift in Sources */,
 				849969A7240D2745006F72F5 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

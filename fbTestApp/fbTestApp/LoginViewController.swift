@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 import FacebookCore
 import FacebookLogin
+import RealmSwift
+
 
 class LoginViewController: UIViewController {
 
@@ -22,10 +25,21 @@ class LoginViewController: UIViewController {
       // Do any additional setup after loading the view.
     }
     
-    
+    func saveUser() {
+       var realm = try! Realm()
+        let usr = User()
+        print(self.userEmail)
+        usr.email = self.userEmail
+        //only for test
+        usr.long = 45.166
+        usr.lat = 33.556
+
+    }
     
     @IBAction func loginBtnClicked(_ sender: Any) {
         if let token = AccessToken.current {
+            self.getFBUserData()
+            self.printProperty()
             let mvc = self.storyboard?.instantiateViewController(identifier: "MapViewController") as!     MapViewController
             self.present(mvc, animated: true, completion: nil)
         } else {
@@ -41,13 +55,14 @@ class LoginViewController: UIViewController {
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     print("access toke is == \(accessToken)")
                     let mvc = self.storyboard?.instantiateViewController(identifier: "MapViewController") as!     MapViewController
+                    mvc.userEmail = self.userEmail
                     self.present(mvc, animated: true, completion: nil)
                 }
                 
             }
 
         }
-    
+        
     }
     
     
@@ -55,12 +70,12 @@ class LoginViewController: UIViewController {
       let token = AccessToken.current?.tokenString
         let params = ["fields": "first_name, last_name, email"]
         let graphRequest = GraphRequest(graphPath: "me", parameters: params, tokenString: token, version: nil, httpMethod: .get)
-        graphRequest.start { (connection, result, error) in
-
+            graphRequest.start { (connection, result, error) in
+            
             if let err = error {
                 print("Facebook graph request error: \(err)")
             } else {
-                print("Facebook graph request successful!")
+                print("Facebook graph request successful! VC1")
 
                 guard let json = result as? NSDictionary else { return }
                 if let email = json["email"] as? String {
@@ -73,18 +88,60 @@ class LoginViewController: UIViewController {
                 }
                 if let lastName = json["last_name"] as? String {
                     self.userLastName = lastName
+                    print(self.userEmail)
                     print(self.userLastName)
                 }
                 
             }
         }
+        self.saveUser()
     }
           
 
     func printProperty () {
+        print("Method printProperty")
         print(self.userEmail)
         print(self.userFirstName)
         print(self.userLastName)
+    }
+    
+    
+    func getFBUserData() {
+        //if function get facebook user details
+        if((AccessToken.current) != nil){
+            
+            GraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email, gender"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    
+                    let dict = result as! [String : AnyObject]
+                    print(result!)
+                    print(dict)
+                    let picutreDic = dict as NSDictionary
+                    let tmpURL1 = picutreDic.object(forKey: "picture") as! NSDictionary
+                    let tmpURL2 = tmpURL1.object(forKey: "data") as! NSDictionary
+                    let finalURL = tmpURL2.object(forKey: "url") as! String
+                    
+                    let nameOfUser = picutreDic.object(forKey: "name") as! String
+                   // self.lblUserName.text = nameOfUser
+                    
+                    var tmpEmailAdd = ""
+                    if let emailAddress = picutreDic.object(forKey: "email") {
+                        tmpEmailAdd = emailAddress as! String
+                        self.userEmail = tmpEmailAdd
+                        
+                    }
+                    else {
+                        var usrName = nameOfUser
+                        usrName = usrName.replacingOccurrences(of: " ", with: "")
+                        tmpEmailAdd = usrName+"@facebook.com"
+                    }
+                    
+                   
+                }
+                
+                print(error?.localizedDescription as Any)
+            })
+        }
     }
     
 }
